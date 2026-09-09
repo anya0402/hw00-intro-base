@@ -5,6 +5,17 @@
 </p>
 <p align="center">(source: Ken Perlin)</p>
 
+## Final Result
+<p align="center">
+  <img width="450" src="cube2.gif">
+</p>
+<p align="center">Link: https://anya0402.github.io/hw00-intro-base/</p>
+
+1. This cube's fragment shader alters the fragment color using fBM (Fractal Brownian Motion) noise. I used a simple implementation of fBM as the base function of noise, and made it 3D so that it would fit with a cube. Then, I took inspiration from Inigo Quilez's implementation of warping, or domain distortion, to add more patterns into the color. This method is basically distorting the input to the fBM with another fBM. I warp twice, which creates the cloud-like patterns in the noise. Next I add color to the noise by using mix functions, along with smoothstep to blend the colors together. One extra constraint I added was to clamp the color to be at or above 160 in the 0-255 RGB scale. This is because the users are allowed to choose whatever input color they want to edit the color of the cube, and I didn't like how it looked when the RGB color had values below 160.
+
+2. This cube's vertex shader alters the cube vertex positions based on time. I wanted to use a sinc function, but since it decays infinitely, I wanted to make it periodic so that the amplitude goes back up over time. I found that a periodic sinc function is called a Dirichlet kernel, so I used that equation to create a displacement of the vertices based on the fragment normal. 
+
+
 ## Objective
 - Check that the tools and build configuration we will be using for the class works.
 - Start learning Typescript and WebGL2

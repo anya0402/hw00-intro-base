@@ -85,9 +85,9 @@ void main() {
 
     vec3 col = color1;
     col = mix(col, color2, smoothstep(0.1, 0.4, fbm_val));
-    col = mix(col, color3,   smoothstep(0.35, 0.55, fbm_val));
-    col = mix(col, color4,   smoothstep(0.5, 0.7, fbm_val));
-    col = mix(col, color5,   smoothstep(0.75, 0.95, fbm_val));
+    col = mix(col, color3, smoothstep(0.35, 0.55, fbm_val));
+    col = mix(col, color4, smoothstep(0.5, 0.7, fbm_val));
+    col = mix(col, color5, smoothstep(0.75, 0.95, fbm_val));
 
     vec3 remappedColor = mix(vec3(0.627), vec3(1.0), u_Color.rgb);
     vec4 diffuseColor = vec4(remappedColor.rbg, u_Color.a);
